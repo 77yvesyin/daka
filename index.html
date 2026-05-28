@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="手机网页打卡记录，本地保存每天上班或没上班记录">
+    <meta name="theme-color" content="#fff6ec">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="打卡记录">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>打卡记录</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="sparkle sparkle-one" aria-hidden="true">✦</div>
+    <div class="sparkle sparkle-two" aria-hidden="true">✦</div>
+    <div class="sparkle sparkle-three" aria-hidden="true">✦</div>
+
+    <main class="app-shell">
+      <section class="hero" aria-label="本月打卡进度">
+        <div class="progress-ring" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <circle class="track" cx="60" cy="60" r="50"></circle>
+            <circle class="bar" cx="60" cy="60" r="50"></circle>
+          </svg>
+          <div class="progress-text">
+            <strong id="progressPercent">0%</strong>
+            <span>COMPLETE</span>
+          </div>
+        </div>
+
+        <h1 id="pageTitle">打卡记录</h1>
+        <p class="summary-count">
+          <strong id="completedCount">0</strong>/<span id="totalCount">0</span> 天
+        </p>
+      </section>
+
+      <section class="calendar-panel" aria-label="月历">
+        <header class="calendar-header">
+          <button id="prevMonth" class="icon-button" type="button" aria-label="上个月">
+            <span aria-hidden="true">&lsaquo;</span>
+          </button>
+          <h2 id="calendarTitle">2026年5月</h2>
+          <button id="nextMonth" class="icon-button" type="button" aria-label="下个月">
+            <span aria-hidden="true">&rsaquo;</span>
+          </button>
+        </header>
+
+        <div class="weekday-row" aria-hidden="true">
+          <span>周日</span>
+          <span>周一</span>
+          <span>周二</span>
+          <span>周三</span>
+          <span>周四</span>
+          <span>周五</span>
+          <span>周六</span>
+        </div>
+
+        <div id="calendarGrid" class="calendar-grid"></div>
+      </section>
+
+      <footer class="motto" aria-label="提示">
+        <div class="sun" aria-hidden="true">☼</div>
+        <p>每天一点点</p>
+        <strong>都会变成很大的改变。</strong>
+        <span aria-hidden="true"></span>
+      </footer>
+    </main>
+
+    <div class="wave" aria-hidden="true"></div>
+
+    <dialog id="dayDialog" class="day-dialog">
+      <form method="dialog">
+        <p id="dialogDate" class="dialog-date">选择日期</p>
+        <div class="dialog-actions">
+          <button id="markWork" class="choice-button work" value="work" type="button">
+            <span aria-hidden="true">✓</span>
+            上班
+          </button>
+          <button id="markOff" class="choice-button off" value="off" type="button">
+            <span aria-hidden="true">○</span>
+            没上班
+          </button>
+        </div>
+        <button id="clearDay" class="clear-button" type="button">清除记录</button>
+        <button class="close-button" value="cancel">关闭</button>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>

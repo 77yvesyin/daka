@@ -1,0 +1,9 @@
+{
+  "name": "打卡记录",
+  "short_name": "打卡记录",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fffdf7",
+  "theme_color": "#f6f2e8",
+  "description": "简单的本地打卡记录"
+}

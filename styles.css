@@ -1,0 +1,430 @@
+:root {
+  color-scheme: light;
+  --bg: #fff7fb;
+  --panel: #fffdf9;
+  --ink: #5b3a72;
+  --text: #4a4050;
+  --muted: #a192a8;
+  --line: #f0dfec;
+  --orange: #9b6bc7;
+  --orange-deep: #7c4ea8;
+  --orange-soft: #f5e8fb;
+  --cell: #fff8fc;
+  --shadow: 0 18px 40px rgba(91, 58, 114, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 86% 13%, rgba(255, 255, 255, 0.94) 0 42px, transparent 43px),
+    radial-gradient(circle at 5% 18%, rgba(255, 255, 255, 0.78) 0 32px, transparent 33px),
+    linear-gradient(180deg, #fff0f8 0%, #fffafd 44%, #f8efff 100%);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 460px);
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: max(26px, env(safe-area-inset-top)) 10px 116px;
+}
+
+.hero {
+  display: grid;
+  justify-items: center;
+  padding: 4px 0 20px;
+  text-align: center;
+}
+
+.progress-ring {
+  position: relative;
+  width: 140px;
+  aspect-ratio: 1;
+  margin-bottom: 14px;
+}
+
+.progress-ring svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress-ring circle {
+  fill: none;
+  stroke-width: 10;
+}
+
+.progress-ring .track {
+  stroke: #f0d9ee;
+}
+
+.progress-ring .bar {
+  stroke: var(--orange);
+  stroke-linecap: round;
+  stroke-dasharray: 314.16;
+  stroke-dashoffset: 314.16;
+  transition: stroke-dashoffset 180ms ease;
+}
+
+.progress-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.progress-text strong {
+  color: var(--orange);
+  font-size: 38px;
+  line-height: 1;
+}
+
+.progress-text span {
+  margin-top: 5px;
+  color: #9e9b96;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  color: var(--ink);
+  font-size: clamp(38px, 11vw, 52px);
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.summary-count {
+  margin-top: 12px;
+  color: #817b74;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.summary-count strong {
+  color: var(--orange);
+  font-size: 25px;
+}
+
+.calendar-panel {
+  padding: 17px 14px 18px;
+  background: rgba(255, 253, 249, 0.94);
+  border: 1px solid rgba(244, 222, 239, 0.95);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.calendar-header h2 {
+  color: var(--orange-deep);
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 50%;
+  background: var(--orange-soft);
+  color: var(--orange);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.icon-button span {
+  transform: translateY(-1px);
+  font-size: 31px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.weekday-row,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.weekday-row {
+  gap: 4px;
+  margin-bottom: 8px;
+  color: #9c9a96;
+  font-size: 10px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.calendar-grid {
+  gap: 5px;
+}
+
+.day-cell {
+  display: grid;
+  grid-template-rows: 18px 20px;
+  gap: 3px;
+  align-items: center;
+  min-width: 0;
+  height: 67px;
+  padding: 8px 2px 7px;
+  border: 1px solid #f3e7f0;
+  border-radius: 8px;
+  background: var(--cell);
+  color: var(--text);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.day-cell.empty {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.day-cell.today {
+  border-color: var(--orange);
+}
+
+.day-cell .day-number {
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.status-dot {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.status-dot.work {
+  background: var(--orange);
+  color: #fff;
+}
+
+.status-dot.off {
+  border: 2px solid #c7b9cc;
+  color: transparent;
+}
+
+.motto {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  margin-top: 28px;
+  color: #8a8179;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.motto .sun {
+  color: var(--orange);
+  font-size: 36px;
+  line-height: 1;
+}
+
+.motto strong {
+  color: var(--orange);
+  font-size: 16px;
+}
+
+.motto > span {
+  width: 20px;
+  height: 3px;
+  margin-top: 11px;
+  border-radius: 999px;
+  background: var(--orange);
+}
+
+.sparkle {
+  position: fixed;
+  z-index: 0;
+  color: var(--orange);
+  font-size: 22px;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.sparkle-one {
+  top: 31px;
+  left: calc(50% - 86px);
+}
+
+.sparkle-two {
+  top: 96px;
+  left: calc(50% - 118px);
+  color: #ffc17a;
+  font-size: 15px;
+}
+
+.sparkle-three {
+  top: 123px;
+  right: calc(50% - 110px);
+  color: #ff9b30;
+  font-size: 17px;
+}
+
+.wave {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  height: 132px;
+  background:
+    radial-gradient(100% 92px at 17% 116%, rgba(245, 179, 218, 0.62) 0 72%, transparent 73%),
+    radial-gradient(130% 134px at 80% 95%, rgba(155, 107, 199, 0.64) 0 56%, transparent 57%),
+    radial-gradient(120% 106px at 12% 118%, rgba(252, 205, 229, 0.72) 0 62%, transparent 63%);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.wave::before {
+  content: "";
+  position: absolute;
+  inset: 26px 0 auto;
+  height: 82px;
+  background: repeating-linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.42) 0 1px,
+    transparent 1px 6px
+  );
+  mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+}
+
+.day-dialog {
+  width: min(calc(100vw - 34px), 410px);
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  color: var(--text);
+  box-shadow: 0 24px 70px rgba(92, 33, 10, 0.24);
+}
+
+.day-dialog::backdrop {
+  background: rgba(83, 45, 22, 0.26);
+}
+
+.day-dialog form {
+  padding: 20px;
+  background: var(--panel);
+}
+
+.dialog-date {
+  margin-bottom: 16px;
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.dialog-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.choice-button,
+.clear-button,
+.close-button {
+  min-height: 48px;
+  border-radius: 16px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.choice-button {
+  border: 0;
+  color: #fff;
+  font-weight: 900;
+}
+
+.choice-button.work {
+  background: var(--orange);
+}
+
+.choice-button.off {
+  background: #b8a8c4;
+}
+
+.clear-button,
+.close-button {
+  width: 100%;
+  margin-top: 10px;
+  background: #fff;
+}
+
+.clear-button {
+  border: 1px solid #e9c6df;
+  color: var(--orange-deep);
+}
+
+.close-button {
+  border: 1px solid var(--line);
+  color: #817b74;
+}
+
+@media (max-width: 370px) {
+  .app-shell {
+    padding-inline: 8px;
+  }
+
+  .progress-ring {
+    width: 120px;
+  }
+
+  .calendar-panel {
+    padding-inline: 10px;
+  }
+
+  .calendar-header h2 {
+    font-size: 26px;
+  }
+
+  .day-cell {
+    height: 58px;
+  }
+
+  .day-cell .day-number {
+    font-size: 14px;
+  }
+}
