@@ -42,21 +42,21 @@ button {
   min-height: 100vh;
   min-height: 100svh;
   margin: 0 auto;
-  padding: max(26px, env(safe-area-inset-top)) 10px 116px;
+  padding: max(14px, env(safe-area-inset-top)) 10px 14px;
 }
 
 .hero {
   display: grid;
   justify-items: center;
-  padding: 4px 0 20px;
+  padding: 0 0 12px;
   text-align: center;
 }
 
 .progress-ring {
   position: relative;
-  width: 140px;
+  width: 116px;
   aspect-ratio: 1;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 
 .progress-ring svg {
@@ -93,7 +93,7 @@ button {
 
 .progress-text strong {
   color: var(--orange);
-  font-size: 38px;
+  font-size: 31px;
   line-height: 1;
 }
 
@@ -113,15 +113,15 @@ p {
 
 h1 {
   color: var(--ink);
-  font-size: clamp(38px, 11vw, 52px);
+  font-size: clamp(34px, 10vw, 46px);
   font-weight: 900;
   line-height: 1.05;
 }
 
 .summary-count {
-  margin-top: 12px;
+  margin-top: 8px;
   color: #817b74;
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 700;
 }
 
@@ -131,7 +131,7 @@ h1 {
 }
 
 .calendar-panel {
-  padding: 17px 14px 18px;
+  padding: 14px 12px 14px;
   background: rgba(255, 253, 249, 0.94);
   border: 1px solid rgba(244, 222, 239, 0.95);
   border-radius: 28px;
@@ -143,13 +143,13 @@ h1 {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .calendar-header h2 {
   color: var(--orange-deep);
   text-align: center;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 900;
   line-height: 1.1;
 }
@@ -182,7 +182,7 @@ h1 {
 
 .weekday-row {
   gap: 4px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: #9c9a96;
   font-size: 10px;
   font-weight: 900;
@@ -190,7 +190,7 @@ h1 {
 }
 
 .calendar-grid {
-  gap: 5px;
+  gap: 4px;
 }
 
 .day-cell {
@@ -199,8 +199,8 @@ h1 {
   gap: 3px;
   align-items: center;
   min-width: 0;
-  height: 67px;
-  padding: 8px 2px 7px;
+  height: 54px;
+  padding: 6px 2px 5px;
   border: 1px solid #f3e7f0;
   border-radius: 8px;
   background: var(--cell);
@@ -220,7 +220,7 @@ h1 {
 }
 
 .day-cell .day-number {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 900;
   line-height: 1;
 }
@@ -244,36 +244,6 @@ h1 {
 .status-dot.off {
   border: 2px solid #c7b9cc;
   color: transparent;
-}
-
-.motto {
-  display: grid;
-  justify-items: center;
-  gap: 3px;
-  margin-top: 28px;
-  color: #8a8179;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.motto .sun {
-  color: var(--orange);
-  font-size: 36px;
-  line-height: 1;
-}
-
-.motto strong {
-  color: var(--orange);
-  font-size: 16px;
-}
-
-.motto > span {
-  width: 20px;
-  height: 3px;
-  margin-top: 11px;
-  border-radius: 999px;
-  background: var(--orange);
 }
 
 .sparkle {
@@ -302,34 +272,6 @@ h1 {
   right: calc(50% - 110px);
   color: #ff9b30;
   font-size: 17px;
-}
-
-.wave {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-  height: 132px;
-  background:
-    radial-gradient(100% 92px at 17% 116%, rgba(245, 179, 218, 0.62) 0 72%, transparent 73%),
-    radial-gradient(130% 134px at 80% 95%, rgba(155, 107, 199, 0.64) 0 56%, transparent 57%),
-    radial-gradient(120% 106px at 12% 118%, rgba(252, 205, 229, 0.72) 0 62%, transparent 63%);
-  opacity: 0.95;
-  pointer-events: none;
-}
-
-.wave::before {
-  content: "";
-  position: absolute;
-  inset: 26px 0 auto;
-  height: 82px;
-  background: repeating-linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.42) 0 1px,
-    transparent 1px 6px
-  );
-  mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
 }
 
 .day-dialog {
@@ -409,7 +351,7 @@ h1 {
   }
 
   .progress-ring {
-    width: 120px;
+    width: 102px;
   }
 
   .calendar-panel {
@@ -421,7 +363,7 @@ h1 {
   }
 
   .day-cell {
-    height: 58px;
+    height: 49px;
   }
 
   .day-cell .day-number {
