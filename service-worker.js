@@ -1,10 +1,11 @@
-const CACHE_NAME = "daka-web-v3";
+const CACHE_NAME = "daka-web-v4";
 const FILES = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
   "./manifest.webmanifest",
+  "./favicon.ico",
   "./icon-180.png",
   "./icon-192.png",
   "./icon-512.png"
